@@ -71,6 +71,7 @@ Lower Priority
   - AN IR for compiling to C++
   - Why?  Because we want the mycpp to stand on its own a bit.
   - We want some notion of correctness, not just generating textual C++
+  - See [IR.md][IR.md]
 
 These are all IMPERATIVE langauges.  They are not Lispy; they are not
 homoiconic!
@@ -87,46 +88,6 @@ We just use the Lisp syntax since it's simple to parse.
     - well does comptime change that?  You can generate types on the fly?
     - what about the lexer?
       - would you write a mini re2c?
-
-## Yaks IR for Oils mycpp
-
-Code
-
-- Top Level: class, func   (Class Fn Init Destroy)
-- including methods, inheritance
-- constructor and destructor for context manager
-- modules: import   (Import ?)
-
-Within a function
-
-- var set
-  - not def?  Because (set [a i] 0) is different and useful
-  - I guess Yaks TAPL can use def
-- scope  : with - for scope { }
-- looping: foreach, while
-- cond   : if switch (tagswitch)
-- errors : try catch throw
-
-Infix Expressions?
-
-I think these are the interesting ones:
-
-- `(myfunc obj.field)`
-- `(obj.method arg1 arg2)`
-- Probably `(+ 1 2)` is OK -- this is a rough IR
-  - Also I wonder about formatting
-    - that could be `\()` or something?  But sometimes you want dynamic
-      formats?  So printf can be OK
-
-Data Types
- 
-- Bool Int Float Str
-- (List T) (Dict K V)
-
-Basically I want to make an interpreter with the same semantics as mycpp
-We already have that -- it's Python
-
-But this is a static interpreter I guess
 
 ### ASDL Implemented with macros?
 
@@ -151,19 +112,12 @@ But this is a static interpreter I guess
   - it does special forms, at PARSE time, not runtime
 
   - but does this make sense?
-    - ((fn [x] (+ x 1)) 42) is the issue
+    - `((fn [x] (+ x 1)) 42)` is the issue
     - you eval the first one
 
 - TODO: rename parse to read?   I like parse though because it's creating
   recursive structure.  That's different than reading.
   - Also Lisp has a bunch of syntax!
-
-## ocamlscheme
-
-- https://github.com/schani/ocamlscheme
-
-- "This is a very efficient interpreter for a small statically scoped subset of Scheme"
-- "Most importantly, no symbol lookup needs to happen during execution"
 
 ## Type Checker and Compiler for Yaks, in Yaks
 

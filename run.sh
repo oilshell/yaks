@@ -23,10 +23,10 @@ hi() {
   time deno run hi.ts
 }
 
-readonly NERD_FILES='header.ts lex.ts parse.ts transform.ts check.ts eval.ts ops.ts yaks.ts'
+readonly YAKS_FILES='header.ts lex.ts parse.ts transform.ts check.ts eval.ts ops.ts yaks.ts'
 
 fmt() {
-  deno fmt --single-quote $NERD_FILES tests.ts
+  deno fmt --single-quote $YAKS_FILES tests.ts
 }
 
 lint() {
@@ -35,11 +35,11 @@ lint() {
 
   deno lint \
     --rules-exclude="prefer-const,no-unreachable,no-fallthrough$more" \
-    $NERD_FILES tests.ts
+    $YAKS_FILES tests.ts
 }
 
 bundle() {
-  deno bundle yaks.ts bundle.js
+  deno bundle yaks.ts web/yaks-bundle.js
 }
 
 check-run() {
@@ -70,25 +70,25 @@ count() {
   echo
 
   # The production code
-  wc -l $NERD_FILES
+  wc -l $YAKS_FILES
   echo
 
-  # 410 lines!
+  # 446 lines!
   echo 'Lexing / Parsing / Errors'
   wc -l lex.ts parse.ts transform.ts yaks.ts
   echo
 
-  # 187 lines
+  # 214 lines
   echo 'Logic'
   wc -l check.ts eval.ts ops.ts
   echo
 
   echo 'Bundle'
-  wc -l bundle.js
+  wc -l web/yaks-bundle.js
   echo
 
   echo 'Docs'
-  wc -l *.md
+  wc -l doc/*.md
   echo
 }
 

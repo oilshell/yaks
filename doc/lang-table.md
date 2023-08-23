@@ -98,13 +98,15 @@ Does *Github* support Markdown in cells?  CommonMark does.  [TODO.md](TODO.md)
   - OCaml (static) interpreting Lisp (dynamic)
     - or was there a compiler too?
     - I hacked on this codebase to learn OCaml
+- https://github.com/schani/ocamlscheme
+  - "This is a very efficient interpreter for a small statically scoped subset of Scheme"
+  - "Most importantly, no symbol lookup needs to happen during execution"
 
 - Let's build a compiler
   - https://compilers.iecc.com/crenshaw/
   - PASCAL compiling ???
 
 ### Bolt - static/static
-
 
 - Follow Bolt, an OO language implemented in OCaml
   - TAPL doesn't seem to have an implementation
@@ -147,3 +149,5 @@ Does *Github* support Markdown in cells?  CommonMark does.  [TODO.md](TODO.md)
 
 - Make-a-lisp
   - Lisp and X  -- are they all interpreters?
+
+# vim: sw=2
