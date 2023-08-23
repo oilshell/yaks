@@ -48,13 +48,13 @@ But the reader is worth comparing.
 Test
 
 <table>
-  <tr>
-    <td>
+ <tr>
+   <td>
 
 Does *Github* support Markdown in cells?  CommonMark does.  [TODO.md](TODO.md)
      
-    </td>
-  </tr>
+   </td>
+ </tr>
 </table>
 
 ## Books
